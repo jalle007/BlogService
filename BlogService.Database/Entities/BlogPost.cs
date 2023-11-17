@@ -9,9 +9,9 @@
             get => _id.ToString();
             set => _id = Guid.Parse(value);
         }
-        public string Author { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public required string Author { get; set; }
+        public required string Title { get; set; }
+        public required string Content { get; set; }
         public List<Comment> Comments { get; set; } = new List<Comment>();
     }
 
