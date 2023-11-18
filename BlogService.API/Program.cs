@@ -89,14 +89,14 @@ public class Program
         var app = builder.Build();
 
         // Development only
-        if (app.Environment.IsDevelopment())
-        {
+        //if (app.Environment.IsDevelopment())
+        //{
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
                 options.EnableTryItOutByDefault();
             });
-        }
+        //}
 
         // Adds API request throtling 10 requests per minut
         app.UseIpRateLimiting();

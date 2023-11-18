@@ -1,0 +1,46 @@
+﻿@startuml
+
+
+
+allowmixing
+skinparam titleBackgroundColor Wheat
+title BLOG SERVICE ARCHITECTURE
+
+!define RECTANGLE class
+
+RECTANGLE Microservice {
+    :+ RESTful API
+    :+ Authentication
+    :+ Rate Limiting
+}
+
+RECTANGLE Database {
+    :+ EF Core
+    :+ EF In Memory Database
+}
+
+RECTANGLE Cache {
+    :+ Redis
+}
+
+RECTANGLE Client
+
+RECTANGLE DockerContainer {
+    :+ Containerization
+}
+
+cloud AzureCloud
+
+Client --> Microservice : uses
+Microservice  --> Database : reads/writes data
+Microservice  --> Cache : caches data
+Microservice  -up-> DockerContainer : deployed in
+DockerContainer -right-> AzureCloud : hosted on
+
+'note right of AzureCloud : Azure Hosting
+
+note right of Microservice : Include CQRS Pattern
+
+'https://www.plantuml.com/plantuml/uml/TP5FZzCm4CNl_XJ3YGEgkEU0Dcl2RgGkB6c1ys1Fcr4TkxB7BBk8xuxRYkQF89V4px_tuZU-IO9Hyk0KEXUU1lx9Vg_IWVqH8muWB8vkqHpsCMHlTN0XmhUUKDHv2sxNd-vWqtHVMzr0tUdxTjlexPUkKUgLfHrxWgu8zSUxTGF6OKfAZS83cnWInHzi27ufA4_rfXWssrrsK3-sVwKwIqzUsA1my5SGXM3D0ylfrB-doUzHy3kcIMhp0NI8D5cs7Xve2F7vIiypD9f-UYood1Q4O_8o-sym1uewUC7IFOxkgyGlbmuboBYGBTGlEP8-VIfr2OJLwjryDXNaH4dDj1CrzgmW4jhqzYcoK09Rz7_WbqeLcFB-3vMFXLlMgC3IqOLdii1UBNTNaVUz5DjOfJZwaAJmfQfwxOCGd2a8knbsMS1zWK-NgERaOWYjDovR0lsvsy0ZYb3qweQypOFx0m00
+
+@enduml
