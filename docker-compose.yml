@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  blogservice.api:
+    image: ${DOCKER_REGISTRY-}blogserviceapi
+    build:
+      context: .
+      dockerfile: BlogService.API/Dockerfile
+  redis:
+    image: redis

@@ -37,7 +37,7 @@ namespace BlogService.Service.Implementations
                 if (!string.IsNullOrEmpty(cachedBlogPost))
                 {
                     blogPost = JsonSerializer.Deserialize<BlogPost>(cachedBlogPost);
-                    //_logger.LogInformation("Retrieved blog post with ID {BlogPostId} from cache", blogPostId);
+                    _logger.LogInformation("Retrieved blog post with ID {BlogPostId} from cache", blogPostId);
                 }
             }
             catch (Exception ex)
