@@ -42,11 +42,12 @@ Before running the Blog Service application, ensure you have the following insta
 To run the Blog Service locally:
 1. Clone the repository to your local machine.
 2. Navigate to the root directory of the project.
-3. Use Docker Compose to build and run the application:
+3. To run the app with Redis server, use Docker Compose to build and run the application:
 
    docker-compose up
-
     https://localhost:7080/swagger/index.html
+
+4. To start the app without Redis, just run BlogService.API
 
 ### Live Demo
  The link to the live demo on Azure platform :
